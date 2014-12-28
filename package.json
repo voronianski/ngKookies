@@ -1,6 +1,6 @@
 {
   "name": "ngkookies",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "More powerful replacer for built-in Angular $cookieStore (https://github.com/angular/angular.js/issues/950)",
   "main": "ngKookies.js",
   "scripts": {
