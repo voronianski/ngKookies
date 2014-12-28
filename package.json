@@ -14,8 +14,7 @@
     "angular",
     "javascript",
     "cookies",
-    "client-side",
-    "kookie",
+    "ngKookies",
     "ngCookies"
   ],
   "author": "Dmitri Voronianski <dmitri.voronianski@gmail.com>",
@@ -23,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/voronianski/ngKookies/issues"
   },
-  "homepage": "https://github.com/voronianski/ngKookies"
+  "homepage": "https://github.com/voronianski/ngKookies",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.7.0"
+  }
 }
