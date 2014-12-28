@@ -18,7 +18,7 @@
 
     angular.module('ngKookies', [])
 
-    .provider('ngKookies', function () {
+    .provider('$kookies', function () {
         var config = this.config = {};
         var defaults = this.defaults = {};
 
@@ -84,6 +84,7 @@
             };
 
             publicMethods.set = function (key, value, options) {
+                options = options || {};
                 options = angular.extend(options, defaults);
 
                 if (typeof options.expires === 'number') {

@@ -9,7 +9,9 @@
         "after",
         "afterEach",
         "it",
-        "xit"
+        "xit",
+        "expect",
+        "inject"
     ],
 
     "asi" : false,

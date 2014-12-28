@@ -1,10 +1,10 @@
 {
   "name": "ngKookies",
   "version": "0.1.0",
-  "description": "More powerful replacer for built-in Angular\\'s $cookieStore (https://github.com/angular/angular.js/issues/950)",
+  "description": "More powerful replacer for built-in Angular $cookieStore (https://github.com/angular/angular.js/issues/950)",
   "main": "ngKookies.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
   },
   "repository": {
     "type": "git",
