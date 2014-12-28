@@ -1,16 +1,16 @@
 # ngKookies
 
-> More powerful provider to deal with cookies in Angular.js applications, replacer for default [`$cookieStore`](https://github.com/angular/angular.js/issues/950).
+> More powerful provider to deal with cookies in Angular.js, replacer for default [`$cookieStore`](https://github.com/angular/angular.js/issues/950).
 
 ## Install
 
-You can download `ngKookies.js` manually or install it via [bower]():
+You can download `ngKookies.js` manually or install it via [bower](http://bower.io):
 
 ```bash
 bower install ngKookies
 ```
 
-or via [npm]()
+or via [npm](https://www.npmjs.org)
 
 ```bash
 npm install ngKookies
