@@ -1,6 +1,6 @@
 # ngKookies
 
-> More powerful provider to deal with cookies in Angular.js applications (https://github.com/angular/angular.js/issues/950).
+> More powerful provider to deal with cookies in Angular.js applications, replacer for default [`$cookieStore`](https://github.com/angular/angular.js/issues/950).
 
 ## Install
 
