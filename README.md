@@ -15,7 +15,7 @@ bower install ngKookies
 or via [npm](https://www.npmjs.org)
 
 ```bash
-npm install ngKookies
+npm install ngkookies
 ```
 
 ## Usage
