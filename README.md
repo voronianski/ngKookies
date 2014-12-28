@@ -4,7 +4,7 @@
 
 ## Install
 
-You can download `ngKookies.js` manually or install it via [bower](http://bower.io):
+You can download `ngKookies` manually or install it via [bower](http://bower.io):
 
 ```bash
 bower install ngKookies
@@ -43,11 +43,11 @@ var app = angular.module('exampleApp', ['ngKookies']);
 app.controller('MainCtrl', function ($kookies) {
     $kookies.set('name', 'value');
 
-    // Read cookie
+    // read cookie
     $kookies.get('name'); // "value"
     $kookies.get('nothing'); // undefined
 
-    // Read all available cookies
+    // read all available cookies
     $kookies.get();
 });
 ```
@@ -60,7 +60,7 @@ var app = angular.module('exampleApp', ['ngKookies']);
 app.controller('MainCtrl', function ($kookies) {
     $kookies.set('name', 'value');
 
-    // Delete cookie
+    // delete cookie
     $kookies.remove('name'); // true
     $kookies.remove('nothing'); // false
 });
