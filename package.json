@@ -4,7 +4,7 @@
   "description": "More powerful replacer for built-in Angular $cookieStore (https://github.com/angular/angular.js/issues/950)",
   "main": "ngKookies.js",
   "scripts": {
-    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
+    "test": "./node_modules/karma/bin/karma start --single-run --browsers PhantomJS"
   },
   "repository": {
     "type": "git",
