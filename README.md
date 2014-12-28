@@ -82,7 +82,7 @@ app.controller('MainCtrl', function ($kookies) {
 
 ## Configuration
 
-##### raw {Boolean}
+##### `raw {Boolean}`
 
 By default the cookie value is encoded/decoded when writing/reading, using `encodeURIComponent`/`decodeURIComponent`. Bypass this by setting raw to `true`.
 
@@ -96,7 +96,7 @@ var app = angular.module('exampleApp', ['ngKookies'])
 ]);
 ```
 
-##### json {Boolean}
+##### `json {Boolean}`
 
 Turn on automatic storage of JSON objects passed as the cookie value with angular's [`fromJson`](https://docs.angularjs.org/api/ng/function/angular.fromJson)/[`toJson`](https://docs.angularjs.org/api/ng/function/angular.toJson).
 
