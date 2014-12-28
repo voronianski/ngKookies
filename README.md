@@ -41,6 +41,9 @@ app.controller('MainCtrl', function ($kookies) {
 var app = angular.module('exampleApp', ['ngKookies']);
 
 app.controller('MainCtrl', function ($kookies) {
+    $kookies.set('name', 'value');
+
+    // Read cookie
     $kookies.get('name'); // "value"
     $kookies.get('nothing'); // undefined
 
@@ -49,21 +52,21 @@ app.controller('MainCtrl', function ($kookies) {
 });
 ```
 
-### Delete cookie
+### Delete cookies
 
 ```javascript
 var app = angular.module('exampleApp', ['ngKookies']);
 
 app.controller('MainCtrl', function ($kookies) {
+    $kookies.set('name', 'value');
+
+    // Delete cookie
     $kookies.remove('name'); // true
     $kookies.remove('nothing'); // false
-
-    // Read all available cookies
-    $kookies.get();
 });
 ```
 
-It's necessary pass the exact same path, domain and secure options that were used to set the cookie, unless you're relying on the default options:
+It is necessary to pass the exact same path, domain and secure options that were used to set the cookie, unless you're relying on the default options:
 
 ```javascript
 var app = angular.module('exampleApp', ['ngKookies']);
