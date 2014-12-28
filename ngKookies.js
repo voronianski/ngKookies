@@ -66,7 +66,7 @@
             };
 
             publicMethods.get = function (key, converter) {
-                var result = key ? void 0 : {};
+                var result = key ? undefined : {};
                 var cookies = document.cookie ? document.cookie.split('; ') : [];
 
                 for (var i = 0, l = cookies.length; i < l; i++) {
@@ -77,6 +77,10 @@
                     if (key && key === name) {
                         result = privateMethods.read(cookie, converter);
                         break;
+                    }
+
+                    if (!key && (cookie = privateMethods.read(cookie)) !== undefined) {
+                        result[name] = cookie;
                     }
                 }
 
@@ -93,14 +97,15 @@
                     time.setTime(+time + days * 864e+5);
                 }
 
-                return (document.cookie = [
+                var cookies = document.cookie = [
                     privateMethods.encode(key), '=', privateMethods.stringifyCookie(value),
-                    // use expires attribute, max-age is not supported by IE
-                    options.expires ? '; expires=' + options.expires.toUTCString() : '',
+                    options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
                     options.path    ? '; path=' + options.path : '',
                     options.domain  ? '; domain=' + options.domain : '',
                     options.secure  ? '; secure' : ''
-                ].join(''));
+                ].join('');
+
+                return cookies;
             };
 
             publicMethods.remove = function (key, options) {
@@ -108,7 +113,7 @@
                     return false;
                 }
 
-                publicMethods.set(key, '', angular.extend({ expires: -1}, options));
+                publicMethods.set(key, '', angular.extend({expires: -1}, options));
                 return !publicMethods.get(key);
             };
 
