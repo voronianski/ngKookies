@@ -1,6 +1,6 @@
 # ngKookies
 
-> More powerful provider to deal with cookies in Angular.js, replacer for default [`$cookieStore`](https://github.com/angular/angular.js/issues/950).
+> More powerful provider to deal with cookies in Angular.js with support of different [options](https://github.com/voronianski/ngKookies#options) and [converter functions](https://github.com/voronianski/ngKookies#converters). It replaces default [`$cookieStore`]() due to well-known [limitations](https://github.com/angular/angular.js/issues/950).
 
 ## Install
 
@@ -84,11 +84,11 @@ app.controller('MainCtrl', function ($kookies) {
 
 Cookie options can be set globally by setting properties of the `$.cookie.defaults` object or individually for each call to `$.cookie()` by passing a plain object to the options argument. Per-call options override the default options.
 
-### `expires {Number|Date}` 
+##### `expires {Number|Date}` 
 
 Define lifetime of the cookie. Value can be a `Number` which will be interpreted as days from time of creation or a `Date` object. If omitted, the cookie becomes a session cookie.
 
-### `path {String}`
+##### `path {String}`
 
 Define the path where the cookie is valid. *By default the path of the cookie is the path of the page where the cookie was created (standard browser behavior).* If you want to make it available for instance across the entire domain use `path: '/'`.
 
@@ -100,11 +100,11 @@ Define the path where the cookie is valid. *By default the path of the cookie is
 
 This means one cannot set a path using `path: window.location.pathname` in case such pathname contains a filename like so: `/check.html` (or at least, such cookie cannot be read correctly).
 
-### `domain {String}`
+##### `domain {String}`
 
 Define the domain where the cookie is valid. Defaults to domain of page where the cookie was created.
 
-### `secure {Boolean}`
+##### `secure {Boolean}`
 
 If `true` the cookie transmission requires a secure protocol (https). Defaults to `false`.
 
