@@ -1,5 +1,7 @@
 # ngKookies
 
+[![build status](http://img.shields.io/travis/voronianski/ngKookies.svg?style=flat)](https://travis-ci.org/voronianski/ngKookies)
+
 > More powerful provider to deal with cookies in Angular.js with support of different [options](https://github.com/voronianski/ngKookies#options) and [converter functions](https://github.com/voronianski/ngKookies#converters). It replaces default [`$cookieStore`](https://docs.angularjs.org/api/ngCookies/service/$cookieStore) due to well-known limitations (https://github.com/angular/angular.js/issues/950).
 
 ## Install
