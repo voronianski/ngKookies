@@ -80,4 +80,45 @@ app.controller('MainCtrl', function ($kookies) {
 });
 ```
 
+## Options
+
+Cookie options can be set globally by setting properties of the `$.cookie.defaults` object or individually for each call to `$.cookie()` by passing a plain object to the options argument. Per-call options override the default options.
+
+### `expires {Number|Date}` 
+
+Define lifetime of the cookie. Value can be a `Number` which will be interpreted as days from time of creation or a `Date` object. If omitted, the cookie becomes a session cookie.
+
+### `path {String}`
+
+Define the path where the cookie is valid. *By default the path of the cookie is the path of the page where the cookie was created (standard browser behavior).* If you want to make it available for instance across the entire domain use `path: '/'`.
+
+**Note regarding Internet Explorer:**
+
+> Due to an obscure bug in the underlying WinINET InternetGetCookie implementation, IE’s document.cookie will not return a cookie if it was set with a path attribute containing a filename.
+
+(From [Internet Explorer Cookie Internals (FAQ)](http://blogs.msdn.com/b/ieinternals/archive/2009/08/20/wininet-ie-cookie-internals-faq.aspx))
+
+This means one cannot set a path using `path: window.location.pathname` in case such pathname contains a filename like so: `/check.html` (or at least, such cookie cannot be read correctly).
+
+### `domain {String}`
+
+Define the domain where the cookie is valid. Defaults to domain of page where the cookie was created.
+
+### `secure {Boolean}`
+
+If `true` the cookie transmission requires a secure protocol (https). Defaults to `false`.
+
+## Converters
+
+Provide a conversion function as optional last argument for reading, in order to change the cookie's value to a different representation on the fly.
+
+Example for parsing a value into a `Number`:
+
+```javascript
+$kookies.set('foo', '42');
+$kookies.get('foo', Number); // 42
+```
+
 ## References
+
+Initially ported from [jquery-cookie](https://github.com/carhartl/jquery-cookie).
