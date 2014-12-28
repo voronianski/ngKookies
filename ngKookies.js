@@ -19,8 +19,8 @@
     angular.module('ngKookies', [])
 
     .provider('ngKookies', function () {
-        var config = {};
-        var defaults = {};
+        var config = this.config = {};
+        var defaults = this.defaults = {};
 
         this.setConfig = function (newConfig) {
             angular.extend(config, newConfig);
@@ -52,12 +52,12 @@
                 try {
                     // replace server-side written pluses with spaces.
                     s = decodeURIComponent(s.replace(/\+/g, ' '));
-                    return config.json ? angular.fromJSON(s) : s;
+                    return config.json ? angular.fromJson(s) : s;
                 } catch(e) {}
             };
 
             privateMethods.stringifyCookie = function (value) {
-                return privateMethods.encode(config.json ? angular.toJSON(value) : String(value));
+                return privateMethods.encode(config.json ? angular.toJson(value) : String(value));
             };
 
             privateMethods.read = function (s, converter) {

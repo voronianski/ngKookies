@@ -80,6 +80,36 @@ app.controller('MainCtrl', function ($kookies) {
 });
 ```
 
+## Configuration
+
+##### raw {Boolean}
+
+By default the cookie value is encoded/decoded when writing/reading, using `encodeURIComponent`/`decodeURIComponent`. Bypass this by setting raw to `true`.
+
+```javascript
+var app = angular.module('exampleApp', ['ngKookies'])
+
+.config(['$kookiesProvider', 
+    function ($kookiesProvider) {
+        $kookiesProvider.config.raw = true;
+    }
+]);
+```
+
+##### json {Boolean}
+
+Turn on automatic storage of JSON objects passed as the cookie value with angular's [`fromJson`](https://docs.angularjs.org/api/ng/function/angular.fromJson)/[`toJson`](https://docs.angularjs.org/api/ng/function/angular.toJson).
+
+```javascript
+var app = angular.module('exampleApp', ['ngKookies'])
+
+.config(['$kookiesProvider', 
+    function ($kookiesProvider) {
+        $kookiesProvider.config.json = true;
+    }
+]);
+```
+
 ## Options
 
 Cookie options can be set globally by setting properties of the `$.cookie.defaults` object or individually for each call to `$.cookie()` by passing a plain object to the options argument. Per-call options override the default options.

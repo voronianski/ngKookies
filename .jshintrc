@@ -1,7 +1,15 @@
 {
     "predef": [
         "angular",
-        "define"
+        "define",
+        "describe",
+        "xdescribe",
+        "beforeEach",
+        "before",
+        "after",
+        "afterEach",
+        "it",
+        "xit"
     ],
 
     "asi" : false,
