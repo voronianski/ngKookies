@@ -1,6 +1,6 @@
 # ngKookies
 
-> More powerful provider to deal with cookies in Angular.js with support of different [options](https://github.com/voronianski/ngKookies#options) and [converter functions](https://github.com/voronianski/ngKookies#converters). It replaces default [`$cookieStore`]() due to well-known [limitations](https://github.com/angular/angular.js/issues/950).
+> More powerful provider to deal with cookies in Angular.js with support of different [options](https://github.com/voronianski/ngKookies#options) and [converter functions](https://github.com/voronianski/ngKookies#converters). It replaces default [`$cookieStore`](https://docs.angularjs.org/api/ngCookies/service/$cookieStore) due to well-known [limitations](https://github.com/angular/angular.js/issues/950).
 
 ## Install
 
@@ -121,4 +121,4 @@ $kookies.get('foo', Number); // 42
 
 ## References
 
-Initially ported from [jquery-cookie](https://github.com/carhartl/jquery-cookie).
+- initially ported from [jquery-cookie](https://github.com/carhartl/jquery-cookie).
