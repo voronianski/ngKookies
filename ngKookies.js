@@ -1,6 +1,6 @@
 /*
  * ngKookies - relpacer for built-in $cookieStore
- * Details why - https://github.com/angular/angular.js/issues/950
+ * Porque?? - https://github.com/angular/angular.js/issues/950
  * http://github.com/voronianski/ngKookies
  * (c) 2014 MIT License, https://pixelhunter.me
  */
@@ -19,16 +19,51 @@
     angular.module('ngKookies', [])
 
     .provider('ngKookies', function () {
+        var config = {};
         var defaults = {};
+
+        this.setConfig = function (newConfig) {
+            angular.extend(config, newConfig);
+        };
 
         this.setDefaults = function (newDefaults) {
             angular.extend(defaults, newDefaults);
         };
 
-        this.$get = [function () {
+        this.$get = function () {
 
             var privateMethods = {};
             var publicMethods = {};
+
+            privateMethods.decode = function (s) {
+                return config.raw ? s : encodeURIComponent(s);
+            };
+
+            privateMethods.encode = function (s) {
+                return config.raw ? s : decodeURIComponent(s);
+            };
+
+            privateMethods.parseCookie = function (s) {
+                if (s.indexOf('"') === 0) {
+                    // unescape quoted cookie as according to RFC2068
+                    s = s.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+                }
+
+                try {
+                    // replace server-side written pluses with spaces.
+                    s = decodeURIComponent(s.replace(/\+/g, ' '));
+                    return config.json ? angular.fromJSON(s) : s;
+                } catch(e) {}
+            };
+
+            privateMethods.stringifyCookie = function (value) {
+                return privateMethods.encode(config.json ? angular.toJSON(value) : String(value));
+            };
+
+            privateMethods.read = function (s, converter) {
+                var value = config.raw ? s : privateMethods.parseCookie(s);
+                return angular.isFunction(converter) ? converter(value) : value;
+            };
 
             publicMethods.get = function (key, converter) {
                 var result = key ? void 0 : {};
@@ -40,18 +75,12 @@
                     var cookie = parts.join('=');
 
                     if (key && key === name) {
-                    // If second argument (value) is a function it's a converter...
-                result = read(cookie, value);
-                break;
-            }
+                        result = privateMethods.read(cookie, converter);
+                        break;
+                    }
+                }
 
-            // Prevent storing a cookie that we couldn't decode.
-            if (!key && (cookie = read(cookie)) !== undefined) {
-                result[name] = cookie;
-            }
-        }
-
-        return result;
+                return result;
             };
 
             publicMethods.set = function (key, value, options) {
@@ -64,7 +93,7 @@
                 }
 
                 return (document.cookie = [
-                    encode(key), '=', stringifyCookieValue(value),
+                    privateMethods.encode(key), '=', privateMethods.stringifyCookie(value),
                     // use expires attribute, max-age is not supported by IE
                     options.expires ? '; expires=' + options.expires.toUTCString() : '',
                     options.path    ? '; path=' + options.path : '',
@@ -73,11 +102,16 @@
                 ].join(''));
             };
 
-            publicMethods.remove = function (key) {
+            publicMethods.remove = function (key, options) {
+                if (publicMethods.get(key) === undefined) {
+                    return false;
+                }
 
+                publicMethods.set(key, '', angular.extend({ expires: -1}, options));
+                return !publicMethods.get(key);
             };
 
             return publicMethods;
-        }];
+        };
     });
 }));

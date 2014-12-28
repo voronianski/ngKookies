@@ -1,0 +1,27 @@
+{
+  "name": "ngKookies",
+  "version": "0.1.0",
+  "description": "More powerful replacer for built-in Angular\\'s $cookieStore (https://github.com/angular/angular.js/issues/950)",
+  "main": "ngKookies.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/voronianski/ngKookies.git"
+  },
+  "keywords": [
+    "angular",
+    "javascript",
+    "cookies",
+    "client-side",
+    "kookie",
+    "ngCookies"
+  ],
+  "author": "Dmitri Voronianski <dmitri.voronianski@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/voronianski/ngKookies/issues"
+  },
+  "homepage": "https://github.com/voronianski/ngKookies"
+}
