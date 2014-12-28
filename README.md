@@ -9,7 +9,7 @@
 You can download `ngKookies` manually or install it via [bower](http://bower.io):
 
 ```bash
-bower install ngKookies
+bower install ngkookies
 ```
 
 or via [npm](https://www.npmjs.org)
