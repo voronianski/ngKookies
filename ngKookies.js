@@ -53,7 +53,9 @@
                     // replace server-side written pluses with spaces.
                     s = decodeURIComponent(s.replace(/\+/g, ' '));
                     return config.json ? angular.fromJson(s) : s;
-                } catch(e) {}
+                } catch(e) {
+                    // do nothing
+                }
             };
 
             privateMethods.stringifyCookie = function (value) {

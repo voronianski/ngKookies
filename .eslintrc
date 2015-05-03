@@ -3,6 +3,7 @@
   "parser": "babel-eslint",
   "env": {
     "browser": true,
+    "node": true
   },
   "rules": {
     "strict": 0,
@@ -11,6 +12,7 @@
     "no-unused-vars": 1,
     "no-unused-expressions": 0,
     "new-cap": 0,
-    "no-multi-spaces": 0
+    "no-multi-spaces": 0,
+    "no-empty": 0
   }
 }
