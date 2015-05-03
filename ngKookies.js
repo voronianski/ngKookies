@@ -36,11 +36,11 @@
             var publicMethods = {};
 
             privateMethods.decode = function (s) {
-                return config.raw ? s : encodeURIComponent(s);
+                return config.raw ? s : decodeURIComponent(s);
             };
 
             privateMethods.encode = function (s) {
-                return config.raw ? s : decodeURIComponent(s);
+                return config.raw ? s : encodeURIComponent(s);
             };
 
             privateMethods.parseCookie = function (s) {
